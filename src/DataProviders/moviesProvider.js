@@ -6,9 +6,7 @@ async function getMovies(){
         accept: "application/json"
     }); 
     const movies = await respone.json();
-
-    console.log("movies: " + JSON.stringify(movies), respone);
-
+    
     return movies;
 }
 

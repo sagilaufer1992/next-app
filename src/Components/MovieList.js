@@ -17,8 +17,8 @@ function MovieList() {
     }, []);
 
     return <div className="movies-list">
-        {loading ? "loading" : movies.map(movie =>
-            <MovieListItem key={movie.id} title={movie.title} image={movie.image} />
+        {loading ? "loading" : movies.map(({ id, title, image, rating, released }) =>
+            <MovieListItem key={id} title={title} image={image} rating={rating} year={released} />
         )}
     </div>;
 }
