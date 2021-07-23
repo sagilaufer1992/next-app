@@ -1,0 +1,10 @@
+.logo {
+  height: 10vh;
+  margin: 1vh 10vw;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  background-color: white;
+}
