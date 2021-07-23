@@ -1,9 +1,9 @@
 import './Title.css';
 
-function Title({ title }) {
-    return <div className="title">
-        {title}
-    </div>;
+function Title({ rows }) {
+    return rows.map(row => <div key={row} className="title">
+        {row}
+    </div>);
 }
 
 export default Title;
