@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import './MovieList.css';
 
-import getMovies from "../DataProviders/moviesProvider"
+import getMovies from "../../DataProviders/moviesProvider"
 import MovieListItem from './MovieListItem';
 
 function MovieList() {

@@ -1,7 +1,7 @@
 import './App.css';
 import Header from "./Header";
-import Title from "./Title";
-import MovieList from "./MovieList";
+import Title from "./Utility/Title";
+import MovieList from "./Movie/MovieList";
 
 function App() {
   return (
