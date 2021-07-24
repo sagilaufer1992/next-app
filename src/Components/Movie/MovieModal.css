@@ -1,0 +1,27 @@
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movie-modal-content {
+  background-color: whitesmoke;
+  border-radius: 3em;
+  padding: 3em;
+  outline: 0;
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+}
+.modal-movie-details-region {
+  display: flex;
+  font-size: 12px;
+}
+.modal-image-region {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 100%;
+}
+.movie-large-image {
+  width: 14vw;
+}
