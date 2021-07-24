@@ -12,7 +12,9 @@ async function getMovies() {
         synopsis: _encodeSynopsis(movie.synopsis)
     }));
 
-    return encodedMovies;
+    const sortedMovies = encodedMovies.sort((movie1, movie2) => movie1.title.localeCompare(movie2.title));
+
+    return sortedMovies;
 }
 
 export default getMovies;

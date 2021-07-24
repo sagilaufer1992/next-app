@@ -31,6 +31,16 @@
 .synopsis{
   font-size: large;
 }
+.action-buttons{
+  display: flex;
+  flex-direction: row;
+}
+.action-buttons > *{
+  margin-right: 2vw;
+}
+.imdb-button{
+  background-color: #f5c518 !important;/*imdb color*/
+}
 .back-button{
   width: 14vw;
 }
@@ -43,3 +53,4 @@
 .movie-large-image {
   height: -webkit-fill-available;
 }
+

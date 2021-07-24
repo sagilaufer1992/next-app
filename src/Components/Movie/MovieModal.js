@@ -4,13 +4,22 @@ import Title from "../Utility/Title";
 import Modal from "@material-ui/core/Modal";
 import TextIconButton from '../Utility/TextIconButton';
 import MovieRating from './MovieRating';
-
+import { useCallback } from 'react';
 
 function MovieModal({ movie, close }) {
+    const openImdbLink = useCallback(() => {
+        window.open("https://www.imdb.com/title/" + _getImdbId(movie), '_blank').focus();
+    }, [movie]);
+
+    const downloadMovie = useCallback(() => {
+        alert("Downloading is not yet supported");
+    });
+
     if (!movie) return null;
 
-    const { synopsis, title, largeimage: image, runtime, rating } = movie;
+    const { synopsis, title, largeimage: image, runtime, rating, imdbid, download } = movie;
     const [hours, minutes] = _extractTime(runtime);
+    const downloadEnabled = download === "1"; // possible values are "1", "0" and "" by the data from the server
 
     return <Modal
         open={true}
@@ -29,6 +38,24 @@ function MovieModal({ movie, close }) {
                     <div className="synopsis">
                         {synopsis}
                     </div>
+                    <div className="action-buttons">
+                        {imdbid && <div className="imdb-link">
+                            <TextIconButton
+                                icon="movie_filter"
+                                text="View on IMDB"
+                                iconOnLeft={true}
+                                onClick={openImdbLink}
+                                className="imdb-button"
+                            />
+                        </div>}
+                        <TextIconButton
+                            icon="system_update_alt"
+                            text="Download"
+                            iconOnLeft={true}
+                            onClick={downloadMovie}
+                            disabled={!downloadEnabled}
+                        />
+                    </div>
                 </div>
                 <TextIconButton
                     icon="keyboard_backspace"
@@ -42,10 +69,14 @@ function MovieModal({ movie, close }) {
     </Modal>;
 }
 
+export default MovieModal;
+
 function _extractTime(runtime) {
     const timeRegex = /(\d*)h(\d*)m/;
     const [_, hours, minutes] = runtime.match(timeRegex);
     return [hours, minutes];
 }
 
-export default MovieModal;
+function _getImdbId({ imdbid }) {
+    return imdbid;
+}
