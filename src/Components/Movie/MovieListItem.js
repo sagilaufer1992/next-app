@@ -1,8 +1,10 @@
 import './MovieListItem.css';
 
+import MovieRating from "./MovieRating";
+import TextIconButton from '../Utility/TextIconButton';
+
 import { useCallback } from 'react';
 import Icon from "@material-ui/core/Icon";
-import TextIconButton from '../Utility/TextIconButton';
 
 function MovieListItem({ movie, selectMovie }) {
     const { title, image, rating, released: year } = movie;
@@ -13,14 +15,9 @@ function MovieListItem({ movie, selectMovie }) {
         <div className="movie-title">
             {title} ({year})
         </div>
-        <div className="rating-container">
-            <Icon>star</Icon>
-            <div className="rating-score">
-                {rating === "" ? "none" : rating}
-            </div>
-        </div>
+        <MovieRating rating={rating} />
         <TextIconButton
-            text={"Read More"}
+            text="Read More"
             icon="arrow_right_alt"
             iconOnLeft={false}
             onClick={_selectMovie}

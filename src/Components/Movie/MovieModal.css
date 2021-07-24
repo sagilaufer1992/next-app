@@ -4,26 +4,42 @@
   justify-content: center;
 }
 .movie-modal-content {
+  display: flex;
+  justify-content: space-between;
   background-color: whitesmoke;
   border-radius: 3em;
   padding: 3em;
   outline: 0;
-  display: flex;
   width: 50vw;
   height: 50vh;
 }
-.modal-movie-details-region {
+.movie-right-region {
   display: flex;
   flex-direction: column;
-  width:28vw;
-  font-size: 12px;
+  justify-content: space-between;
+  width: 28vw;
+  font-size: 14px;
 }
-.modal-image-region {
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.movie-details > * {
+  padding-bottom: 2vh;
+}
+.synopsis{
+  font-size: large;
+}
+.back-button{
+  width: 14vw;
+}
+.movie-left-region {
   display: flex;
   align-content: center;
   align-items: center;
   height: 100%;
 }
 .movie-large-image {
-  width: 14vw;
+  height: -webkit-fill-available;
 }

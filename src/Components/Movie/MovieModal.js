@@ -3,12 +3,13 @@ import Title from "../Utility/Title";
 
 import Modal from "@material-ui/core/Modal";
 import TextIconButton from '../Utility/TextIconButton';
+import MovieRating from './MovieRating';
 
 
 function MovieModal({ movie, close }) {
     if (!movie) return null;
 
-    const { synopsis, title, largeimage: image, runtime } = movie;
+    const { synopsis, title, largeimage: image, runtime, rating } = movie;
     const [hours, minutes] = _extractTime(runtime);
 
     return <Modal
@@ -17,20 +18,24 @@ function MovieModal({ movie, close }) {
         className="modal-container"
     >
         <div className="movie-modal-content">
-            <div className="modal-image-region">
+            <div className="movie-left-region">
                 <img className="movie-large-image" src={image} alt={title} title={title}></img>
             </div>
-            <div className="modal-movie-details-region">
-                <Title rows={[title]} />
-                <Title rows={[`${hours}h ${minutes}min`]} className="small" />
-                <div className="synopsis">
-                    {synopsis}
+            <div className="movie-right-region">
+                <div className="movie-details">
+                    <Title rows={[title]} />
+                    <Title rows={[`${hours}h ${minutes}min`]} className="small" />
+                    <MovieRating rating={rating} maxRating={10} />
+                    <div className="synopsis">
+                        {synopsis}
+                    </div>
                 </div>
                 <TextIconButton
-                    icon={"keyboard_backspace"}
-                    text={"Back To List"}
+                    icon="keyboard_backspace"
+                    text="Back To List"
                     iconOnLeft={true}
                     onClick={close}
+                    className="back-button"
                 />
             </div>
         </div >

@@ -1,20 +1,15 @@
-.movie-list-item{
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    background-color: whitesmoke;
-    width: 14vw;
-    margin: 1vh 1vw;
-    border-radius: 1em;
+.movie-list-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: whitesmoke;
+  width: 14vw;
+  margin: 1vh 1vw;
+  border-radius: 1em;
 }
 
-.movie-image{
-    width: 7vw;
-    margin: 1em;
-}
-
-.rating-container{
-    display: flex;
-    align-content: center;
+.movie-image {
+  width: 7vw;
+  margin: 1em;
 }

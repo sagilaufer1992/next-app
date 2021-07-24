@@ -1,11 +1,11 @@
 .title {
-    font-size: 3em;
-    font-weight: bold;
-    font-variant: small-caps;
-    line-height: 1em;
+  font-size: 3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1em;
 }
 .title.small {
-    font-size: 1em;
-    font-family: initial;
-    font-variant: normal;
+  font-size: 1em;
+  text-transform: initial;
+  font-variant: normal;
 }
