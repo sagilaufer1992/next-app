@@ -4,9 +4,8 @@ import MovieList from "./MovieList";
 import MovieModal from "./MovieModal";
 
 import { useState, useCallback, useEffect } from "react";
-import LinearProgress from '@material-ui/core/LinearProgress';
 import Pagination from '@material-ui/lab/Pagination';
-import { Modal } from '@material-ui/core';
+import LoadingModal from '../Utility/LoadingModal';
 
 const MOVIES_PER_PAGE = 6;
 
@@ -32,15 +31,17 @@ function MoviesDisplay({ movies, loading }) {
     const pages = movies ? Math.ceil(movies.length / MOVIES_PER_PAGE) : 0;
 
     return <>
-        <MovieList movies={displayedMovies} selectMovie={setSelectedMovie} />
-        <Pagination
-            count={pages}
-            page={page}
-            onChange={onPageChange}
-            className="pagination"
-        />
-        <MovieModal movie={selectedMovie} close={unselectMovie} />
-
+        {loading ? <LoadingModal /> :
+            <>
+                <MovieList movies={displayedMovies} selectMovie={setSelectedMovie} />
+                <Pagination
+                    count={pages}
+                    page={page}
+                    onChange={onPageChange}
+                    className="pagination"
+                />
+                <MovieModal movie={selectedMovie} close={unselectMovie} />
+            </>}
     </>
 }
 

@@ -1,0 +1,27 @@
+.loading-backdrop {
+  height: 88vh;
+  margin-top: 12vh;
+}
+.loading-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  height: 88vh;
+  margin-top: 12vh
+}
+.progress-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 50vw;
+  height: 50vh;
+  outline: 0;
+  border-radius: 20px;
+}
+.linear-progress {
+  width: 75%;
+}
