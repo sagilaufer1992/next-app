@@ -1,6 +1,15 @@
-.app {
-  display: block;
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: aqua;
   text-align: center;
   height: 100vh;
+}
+.app-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
 }

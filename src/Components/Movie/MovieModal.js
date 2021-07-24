@@ -39,7 +39,7 @@ function MovieModal({ movie, close }) {
                         {synopsis}
                     </div>
                     <div className="action-buttons">
-                        {imdbid && <div className="imdb-link">
+                        {_isImdbIdValid(imdbid) && <div className="imdb-link">
                             <TextIconButton
                                 icon="movie_filter"
                                 text="View on IMDB"
@@ -79,4 +79,8 @@ function _extractTime(runtime) {
 
 function _getImdbId({ imdbid }) {
     return imdbid;
+}
+
+function _isImdbIdValid(imdbId) {
+    return imdbId.startsWith("tt") && imdbId.length === 9;
 }

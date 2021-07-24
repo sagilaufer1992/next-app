@@ -1,0 +1,8 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: whitesmoke;
+  width: 35vw;
+  border-radius: 20px;
+}

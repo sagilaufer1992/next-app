@@ -4,13 +4,11 @@ import Title from "./Utility/Title";
 import SearchInput from "./Utility/SearchInput";
 import MoviesDisplay from './Movie/MoviesDisplay';
 
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-
 import getMovies from "../DataProviders/moviesProvider"
 
 import { useEffect, useState, useCallback } from "react";
+
+const TITLE_ROWS = ["explore your next", "movies and tv shows"];
 
 function App() {
   const [allMovies, setAllMovies] = useState(null);
@@ -32,9 +30,11 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Title rows={["explore your next", "movies and tv shows"]} />
-      <SearchInput filterItems={filterMovies} setResult={setMovies} />
-      <MoviesDisplay movies={movies} />
+      <Title rows={TITLE_ROWS} />
+      <div className="app-content">
+        <SearchInput filterItems={filterMovies} setResult={setMovies} />
+        <MoviesDisplay movies={movies} loading={loading} />
+      </div>
     </div>
   );
 }
