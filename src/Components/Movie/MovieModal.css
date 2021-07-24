@@ -14,6 +14,8 @@
 }
 .modal-movie-details-region {
   display: flex;
+  flex-direction: column;
+  width:28vw;
   font-size: 12px;
 }
 .modal-image-region {

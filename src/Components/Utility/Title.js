@@ -1,7 +1,10 @@
 import './Title.css';
 
-function Title({ rows }) {
-    return rows.map(row => <div key={row} className="title">
+import classnames from "classnames";
+
+function Title({ rows, className }) {
+    const combinedClassName = classnames("title", className)
+    return rows.map(row => <div key={row} className={combinedClassName}>
         {row}
     </div>);
 }

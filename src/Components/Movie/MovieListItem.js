@@ -2,7 +2,7 @@ import './MovieListItem.css';
 
 import { useCallback } from 'react';
 import Icon from "@material-ui/core/Icon";
-import Button from "@material-ui/core/Button";
+import TextIconButton from '../Utility/TextIconButton';
 
 function MovieListItem({ movie, selectMovie }) {
     const { title, image, rating, released: year } = movie;
@@ -19,15 +19,12 @@ function MovieListItem({ movie, selectMovie }) {
                 {rating === "" ? "none" : rating}
             </div>
         </div>
-        <Button
-            variant="outlined"
-            color="inherit"
-            className="read-more-button"
-            endIcon={<Icon>arrow_right_alt</Icon>}
+        <TextIconButton
+            text={"Read More"}
+            icon="arrow_right_alt"
+            iconOnLeft={false}
             onClick={_selectMovie}
-        >
-            Read More
-        </Button>
+        />
     </div>
 }
 

@@ -4,3 +4,8 @@
     font-variant: small-caps;
     line-height: 1em;
 }
+.title.small {
+    font-size: 1em;
+    font-family: initial;
+    font-variant: normal;
+}
