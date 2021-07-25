@@ -9,16 +9,17 @@ import getMovies from "../DataProviders/moviesProvider"
 import { useEffect, useState, useCallback } from "react";
 
 const TITLE_ROWS = ["explore your next", "movies and tv shows"];
+const MOVIES_PER_PAGE = 6;
 
 function App() {
   const [allMovies, setAllMovies] = useState(null);
   const [movies, setMovies] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const filterMovies = useCallback(value =>
-    allMovies.filter(movie => movie.title.toLowerCase().includes(value.toLowerCase()))
-    , [allMovies]);
+  const downloadMovie = useCallback(movie => alert("Downloading is not yet supported"), []);
 
+  // load movies
   useEffect(() => {
     getMovies().then(moviesResult => {
       setAllMovies(moviesResult);
@@ -27,13 +28,21 @@ function App() {
     })
   }, []);
 
+  // callback for searching
+  useEffect(() => {
+    if (!allMovies) return;
+
+    const filteredMovies = allMovies.filter(movie => movie.title.toLowerCase().includes(searchTerm.toLowerCase()));
+    setMovies(filteredMovies);
+  }, [searchTerm, allMovies])
+
   return (
     <div className="app">
       <Header />
       <Title rows={TITLE_ROWS} />
       <div className="app-content">
-        <SearchInput filterItems={filterMovies} setResult={setMovies} />
-        <MoviesDisplay movies={movies} loading={loading} />
+        <SearchInput callback={setSearchTerm} />
+        <MoviesDisplay movies={movies} loading={loading} moviesPerPage={MOVIES_PER_PAGE} downloadMovie={downloadMovie} />
       </div>
     </div>
   );

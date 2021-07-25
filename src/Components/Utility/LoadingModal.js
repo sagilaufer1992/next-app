@@ -4,9 +4,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Modal } from '@material-ui/core';
 import Title from './Title';
 
-const MOVIES_PER_PAGE = 6;
-
-function LoadingModal({ movies, loading }) {
+function LoadingModal() {
     return <Modal
         open
         className="loading-modal"

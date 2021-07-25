@@ -3,13 +3,12 @@ import './SearchInput.css';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { Icon } from '@material-ui/core';
 
-function SearchInput({ filterItems, setResult }) {
-    const onChange = useCallback((event) => {
-        setResult(filterItems(event.target.value))
-    }, [filterItems, setResult])
+function SearchInput({ callback }) {
+    const onChange = useCallback((changeEvent) => callback(changeEvent.target.value), [callback])
+
     return (
         <div className="search-input">
             <Input

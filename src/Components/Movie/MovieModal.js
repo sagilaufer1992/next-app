@@ -6,14 +6,10 @@ import TextIconButton from '../Utility/TextIconButton';
 import MovieRating from './MovieRating';
 import { useCallback } from 'react';
 
-function MovieModal({ movie, close }) {
+function MovieModal({ movie, close, downloadMovie }) {
     const openImdbLink = useCallback(() => {
         window.open("https://www.imdb.com/title/" + _getImdbId(movie), '_blank').focus();
     }, [movie]);
-
-    const downloadMovie = useCallback(() => {
-        alert("Downloading is not yet supported");
-    });
 
     if (!movie) return null;
 
@@ -73,7 +69,7 @@ export default MovieModal;
 
 function _extractTime(runtime) {
     const timeRegex = /(\d*)h(\d*)m/;
-    const [_, hours, minutes] = runtime.match(timeRegex);
+    const [, hours, minutes] = runtime.match(timeRegex);
     return [hours, minutes];
 }
 

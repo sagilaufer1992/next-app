@@ -4,7 +4,6 @@ import MovieRating from "./MovieRating";
 import TextIconButton from '../Utility/TextIconButton';
 
 import { useCallback } from 'react';
-import Icon from "@material-ui/core/Icon";
 
 function MovieListItem({ movie, selectMovie }) {
     const { title, image, rating, released: year } = movie;
